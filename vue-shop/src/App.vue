@@ -18,6 +18,9 @@ export default {
   components: {
     cart
   },
+  mounted() {
+    this.$store.dispatch('LOAD_PRODUCTS',this.$store.state.endpoint)
+  }
 }
 
 </script>

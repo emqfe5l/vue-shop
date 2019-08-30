@@ -18,9 +18,6 @@ export default {
     productGrid,
     productFilter,
   },
-  mounted() {
-  	this.$store.dispatch('LOAD_PRODUCTS',this.$store.state.endpoint)
-  }
 };
 </script>
 <style>

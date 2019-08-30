@@ -64,6 +64,8 @@ export default new Vuex.Store({
 
       let paramsUrl = url + parameters.slice(0,-1);
 
+      console.log(paramsUrl);
+
       fetch(paramsUrl)
         .then(response => response.status !== 200 ? console.log('response error') : response.json())
         .then(result => context.commit('SAVE_TO_STORE', result.products))

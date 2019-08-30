@@ -35,22 +35,17 @@
       <ul class="checkbox-list">
         <li>
           <label for="26">26</label>
-          <input id="26" type="checkbox" v-model="filter.wheelSize">
+          <input id="26" type="checkbox" value="26" v-model="filter.wheelSize">
           <span class="check-box"></span>
         </li>
         <li>
           <label for="27">27</label>
-          <input id="27" type="checkbox" v-model="filter.wheelSize">
+          <input id="27" type="checkbox" value="27" v-model="filter.wheelSize">
           <span class="check-box"></span>
         </li>
         <li>
           <label for="28">28</label>
-          <input id="28" type="checkbox" v-model="filter.wheelSize">
-          <span class="check-box"></span>
-        </li>
-        <li>
-          <label for="29">29</label>
-          <input id="29" type="checkbox" v-model="filter.wheelSize">
+          <input id="28" type="checkbox" value="28" v-model="filter.wheelSize">
           <span class="check-box"></span>
         </li>
       </ul>
@@ -79,19 +74,19 @@ export default {
     filter: {
       handler: function(currentFilter){
         this.$store.commit('SET_FILTER',currentFilter);
+        this.$store.dispatch('FILTER_REQUEST',this.$store.state.endpoint);
         console.log(this.$store.state.filter);
       },
       deep: true,
     }
   },
-  methods: {
-    filterRequest() {
-      this.$store.dispatch('FILTER_REQUEST',this.$store.state.endpoint);
-    }
-  },
+  // methods: {
+  //   filterRequest() {
+  //     this.$store.dispatch('FILTER_REQUEST',this.$store.state.endpoint);
+  //   }
+  // },
 };
 </script>
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .filter-holder {
     width: 220px;

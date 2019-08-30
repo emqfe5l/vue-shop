@@ -29,6 +29,7 @@ export default {
     -o-flex-wrap: wrap;
     flex-wrap: wrap;
     flex-grow: 1;
+    justify-content: space-between;
   }
   .grid-item img {
     width: 100%;

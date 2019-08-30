@@ -1,17 +1,22 @@
 <template>
 	<div class="cart-holder">
-		<button class="cart">
-	    <img src="../assets/shopping-cart.svg" width="30px" alt="">
-	    <span>{{count}}</span>
-	  </button>
-	  <ul class="products-list">
-	  	<li v-for="cartItem,index in this.$store.state.cart">
-	  		<span class="quantity">{{cartItem.quantity}}</span>
-	  		<span class="name">{{cartItem.product.productName}}</span>
-	  		<span class="price">{{cartItem.product.productPrice}}$</span>
-	  		<button class="remove-btn" v-on:click="remove(index)">remove</button>
-	  	</li>
-	  </ul>
+		<button v-on:click="showCart" class="cart">
+		    <img src="../assets/shopping-cart.svg" width="30px" alt="">
+		    <span>{{count}}</span>
+	  	</button>
+	  	<div class="cart-inner" v-show="showCartBlock">
+	  		<ul class="products-list" v-if="count">
+		  	<li v-for="cartItem,index in this.$store.state.cart">
+		  		<span class="quantity">{{cartItem.quantity}}</span>
+		  		<span class="name">{{cartItem.product.productName}}</span>
+		  		<span class="price">{{cartItem.product.productPrice}}$</span>
+		  		<button class="remove-btn" v-on:click="remove(index)">remove</button>
+		  	</li>
+			</ul>
+			<div class="empty-cart-block" v-else>
+			 	<p>cart is empty</p>
+			</div>
+	  	</div>
 	</div>
 </template>
 
@@ -21,9 +26,17 @@ export default {
   props: {
     text: String,
   },
+  data(){
+  	return {
+  		showCartBlock: false,
+  	}
+  },
   methods: {
   	remove(index) {
   		this.$store.dispatch('REMOVE_FROM_CART',index)
+  	},
+  	showCart() {
+  		this.showCartBlock == false ? this.showCartBlock = true : this.showCartBlock = false;
   	}
   },
   computed: {
@@ -34,9 +47,10 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 	.cart-holder {
 		position: relative;
+		z-index: 1;
 	}
 	.cart {
 		widows: 30px;
@@ -44,7 +58,16 @@ export default {
 		background: none;
 		border: 0;
 		outline: 0;
-		position: relative;
+		cursor: pointer;
+	}
+	.cart-inner {
+		position: absolute;
+		right: 0;
+		min-width: 200px;
+		background-color: #fff;
+		border: 2px solid #42b983;
+		border-radius: 5px;
+		padding: 10px;
 	}
 	.cart span {
 		position: absolute;
@@ -68,13 +91,13 @@ export default {
 		display: flex;
 		flex-wrap: wrap;
 		list-style: none;
-		position: absolute;
-		right: 0;
-		min-width: 200px;
-		background-color: #fff;
-		border: 2px solid #42b983;
-		border-radius: 5px;
-		padding: 10px;
+		padding: 0;
+		margin: 0;
+	}
+	.empty-cart-block {
+		p {
+			margin: 0;
+		}
 	}
 	.products-list li {
 		display: -webkit-flex;
