@@ -7,7 +7,7 @@ export default new Vuex.Store({
   state: {
     products: [],
     cart: [],
-    endpoint: 'https://8625794d-609a-4ae2-9a51-c8768b684b2b.mock.pstmn.io/vue-shop',
+    endpoint: 'http://localhost:3000/shop',
     filter: {},
   },
   getters: {
@@ -38,10 +38,15 @@ export default new Vuex.Store({
   },
   actions: {
     LOAD_PRODUCTS: (context,url) => {
-      fetch(url)
-        .then(response => response.status !== 200 ? console.log('response error') : response.json())
+      fetch(url,{
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+      })
+        .then(response => response.status !== 200 ? console.log(response) : response.json())
         .then(result => context.commit('SAVE_TO_STORE', result.products))
-        .catch(error => console.log('error'))
+        .catch(error => console.log(error))
     },
     GET_PRODUCT: (context, payload) => {
       context.commit('ADD_TO_CART', payload);

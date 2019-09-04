@@ -5,12 +5,12 @@
       <ul class="checkbox-list">
         <li>
           <label for="male">male</label>
-          <input id="male" type="checkbox" value="male" name="male" v-model="filter.gender">
+          <input id="male" type="checkbox" value="male" name="male" v-model="filter.productGender">
           <span class="check-box"></span>
         </li>
         <li>
           <label for="female">female</label>
-          <input id="female" type="checkbox" value="female" name="female" v-model="filter.gender">
+          <input id="female" type="checkbox" value="female" name="female" v-model="filter.productGender">
           <span class="check-box"></span>
         </li>
       </ul>
@@ -20,12 +20,12 @@
       <ul class="checkbox-list">
         <li>
           <label for="mounting">mounting</label>
-          <input id="mounting" type="checkbox" value="mounting" v-model="filter.type">
+          <input id="mounting" type="checkbox" value="mounting" v-model="filter.productType">
           <span class="check-box"></span>
         </li>
         <li>
           <label for="city">city</label>
-          <input id="city" type="checkbox" value="city" v-model="filter.type">
+          <input id="city" type="checkbox" value="city" v-model="filter.productType">
           <span class="check-box"></span>
         </li>
       </ul>
@@ -35,17 +35,17 @@
       <ul class="checkbox-list">
         <li>
           <label for="26">26</label>
-          <input id="26" type="checkbox" value="26" v-model="filter.wheelSize">
+          <input id="26" type="checkbox" value="26" v-model="filter.productWheelSize">
           <span class="check-box"></span>
         </li>
         <li>
           <label for="27">27</label>
-          <input id="27" type="checkbox" value="27" v-model="filter.wheelSize">
+          <input id="27" type="checkbox" value="27" v-model="filter.productWheelSize">
           <span class="check-box"></span>
         </li>
         <li>
           <label for="28">28</label>
-          <input id="28" type="checkbox" value="28" v-model="filter.wheelSize">
+          <input id="28" type="checkbox" value="28" v-model="filter.productWheelSize">
           <span class="check-box"></span>
         </li>
       </ul>
@@ -64,9 +64,9 @@ export default {
   data() {
     return {
         filter: {
-          gender: [],
-          type: [],
-          wheelSize: [],
+          productGender: [],
+          productType: [],
+          productWheelSize: [],
       },
     }
   },
