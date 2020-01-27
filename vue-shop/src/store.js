@@ -46,7 +46,7 @@ export default new Vuex.Store({
       })
         .then(response => response.status !== 200 ? console.log(response) : response.json())
         .then(result => context.commit('SAVE_TO_STORE', result.products))
-        .catch(error => console.log(error))
+        .catch(error => console.log(error));
     },
     GET_PRODUCT: (context, payload) => {
       context.commit('ADD_TO_CART', payload);
@@ -74,7 +74,7 @@ export default new Vuex.Store({
       fetch(paramsUrl)
         .then(response => response.status !== 200 ? console.log('response error') : response.json())
         .then(result => context.commit('SAVE_TO_STORE', result.products))
-        .catch(error => console.log('error'))
+        .catch(error => console.log(error))
     }
   },
 });

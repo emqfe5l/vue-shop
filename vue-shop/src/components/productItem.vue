@@ -5,7 +5,10 @@
         <img :src="item.productImageUrl" alt="">
       </div>
       <div class="short-info">
+        <p class="name">{{item.productGender}}</p>
+        <p class="name">{{item.productType}}</p>
         <p class="name">{{item.productName}}</p>
+        <p class="name">{{item.productWheelSize}}</p>
         <span class="price">{{item.productPrice}}<span>$</span></span>
       </div>
     </router-link>
