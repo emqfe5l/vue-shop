@@ -9,7 +9,7 @@
 
 <script>
 // @ is an alias to /src
-import productFilter from '@/components/filter.vue';
+import productFilter from '@/components/productFilter.vue';
 import productGrid from '@/components/productGrid.vue';
 
 export default {

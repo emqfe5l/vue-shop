@@ -11,7 +11,7 @@
   </div>
 </template>
 <script>
-import cart from '@/components/cart.vue'
+import cart from '@/components/productCart.vue'
 
 export default {
   name: 'App',

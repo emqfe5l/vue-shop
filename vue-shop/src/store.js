@@ -9,6 +9,7 @@ export default new Vuex.Store({
     cart: [],
     endpoint: 'http://localhost:3000/shop',
     filter: {},
+    sorting: 'default',
   },
   getters: {
     CART: state => {
@@ -34,6 +35,9 @@ export default new Vuex.Store({
     },
     SET_FILTER: (state,filter) => {
       Object.assign(state.filter, filter);
+    },
+    SET_SORTING: (state,sortOption) => {
+      state.sorting = sortOption;
     }
   },
   actions: {
@@ -78,4 +82,3 @@ export default new Vuex.Store({
     }
   },
 });
-// ?gender=male&gender=female
